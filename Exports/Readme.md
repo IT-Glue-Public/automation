@@ -2,6 +2,13 @@ Readme
 
 Credits to the Original Creator: Jing Hu - Back End Developer - IT Glue
 
+You can use our complimentary export download script to get a jump start on downloading your IT Glue export via the API.
+
+Existing IT Glue Documentation related to our exports via the API can be found here at:
+https://helpdesk.kaseya.com/hc/en-gb/articles/4407476851985-Exporting-and-backing-up-account-data
+https://helpdesk.kaseya.com/hc/en-gb/articles/4407484149265-Getting-started-with-the-IT-Glue-API
+https://api.itglue.com/developer/#exports
+
 The script ITGlueExportDownload.ps1 include 3 functions: 
 Get-ITGlueExportZip
 Get-ITGlueExportById([int]$id)
@@ -52,3 +59,12 @@ Run in Command Prompt
 On PC we can also run the PowerShell script in Command Prompt instead of open a PowerShell terminal:
 powershell -command "& { .  ./Documents/powershell/ITGlueExportDownload.ps1; Get-ITGlueExportZip }"
 powershell -command "& { .  ./Documents/powershell/ITGlueExportDownload.ps1; Get-ITGlueExportZip -Export_Id 1303 }"
+
+
+----
+
+The information provided here by IT Glue is for general informational purposes only. All information is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information provided here.
+
+Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the information provided here. Your use of the information here is solely at your own risk. This disclaimer was created using Termly’s Disclaimer Generator.
+
+----
