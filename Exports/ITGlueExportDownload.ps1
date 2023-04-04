@@ -6,8 +6,8 @@ $headers = @{
     "x-api-key" = $api_key
 }
 # Trim superfluous forward slash from address (if applicable)
-if($base_uri[$base_uri.Length-1] -eq "/") {
-    $base_uri = $base_uri.Substring(0,$base_uri.Length-1)
+if ($base_uri[$base_uri.Length - 1] -eq "/") {
+    $base_uri = $base_uri.Substring(0, $base_uri.Length - 1)
 }
     
 function Get-ITGlueExportByLast {
@@ -16,7 +16,8 @@ function Get-ITGlueExportByLast {
 
     try {
         $rest_output = Invoke-RestMethod -Method get -Uri ($base_uri + $resource_uri) -Headers $headers -ContentType application/vnd.api+json
-    } catch {
+    }
+    catch {
         Write-Error $_
     }
 
@@ -30,7 +31,8 @@ function Get-ITGlueExportById([uint64]$id) {
     
     try {
         $rest_output = Invoke-RestMethod -Method get -Uri ($base_uri + $resource_uri) -Headers $headers -ContentType application/vnd.api+json
-    } catch {
+    }
+    catch {
         Write-Error $_
     }
 
@@ -64,7 +66,7 @@ function Get-ITGlueExportZip {
             $destination = Join-Path -Path $destination_path -ChildPath $destination_name 
             
             $start_time = Get-Date
-            Invoke-RestMethod -Uri $source -OutFile $destination
+            Invoke-WebRequest -Uri $source -OutFile $destination
             Write-Output "Export no $response_id for $destination_name is downloaded in: $((Get-Date).Subtract($start_time).Seconds) second(s)"
         }
         else {
