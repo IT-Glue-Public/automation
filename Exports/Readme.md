@@ -6,15 +6,15 @@ You can use our complimentary export download script to get a jump start on down
 
 Existing IT Glue Documentation related to our exports via the API can be found here at:
 
-[Helpdesk | Exporting and Backing up Account Data]<https://helpdesk.kaseya.com/hc/en-gb/articles/4407476851985-Exporting-and-backing-up-account-data>
-[Helpdesk | Getting Started with the ITGLUE API]<https://helpdesk.kaseya.com/hc/en-gb/articles/4407484149265-Getting-started-with-the-IT-Glue-API>
-[API Reference | Exports]<https://api.itglue.com/developer/#exports>
+* Helpdesk Exporting and Backing up Account Data <https://helpdesk.kaseya.com/hc/en-gb/articles/4407476851985-Exporting-and-backing-up-account-data>
+* Helpdesk  Getting Started with the ITGLUE API <https://helpdesk.kaseya.com/hc/en-gb/articles/4407484149265-Getting-started-with-the-IT-Glue-API>
+* API Reference  Exports <https://api.itglue.com/developer/#exports>
 
 The script ITGlueExportDownload.ps1 include 3 functions:
 
 * Get-ITGlueExportZip
 * Get-ITGlueExportById([int]$id)
-* Get-ITGlueExportByLast.
+* Get-ITGlueExportByLast
 
 This script also contains several global variables that can be used in all functions.
 The base URI and API key need to be configured first to talk with ITGlue server, and a destination folder path also needs to be defined to save the zip attachment.
@@ -40,7 +40,9 @@ A function in PowerShell is a grouping of code that has an optional input and ou
 3 functions in ITGlueExportDownload.ps1:
 
 `Get-ITGlueExportZip` main function that can accept an optional param Export_Id and automatically download the zip attachment if available;
+
 `Get-ITGlueExportById([int]$id)` supportive function to send rest request for the export with specified id;
+
 `Get-ITGlueExportByLast` supportive function to send rest request for the most recently updated export under the account of input API key.
 
 We only need to call the main function which will then call a supportive function to send the corresponding rest request for the export. The main function can be called with/without param. Only `Get-ITGlueExportZip` should be exposed to the user, please don’t call the other two functions.
